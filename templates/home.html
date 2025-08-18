@@ -3,9 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>weatherapp</title>
+    <title>Weather App</title>
 </head>
 <body>
-    <h1>This is homepage of weatherapp</h1>
+    <div class="container">
+        <h1>Weather App</h1>
+    </div>
+
+    <!-- Weather Search Form -->
+    <form method="POST">
+        {% csrf_token %} 
+        <!-- csrf_token is used for security purpose of our form -->
+        
+        <!-- FIX: Give input a proper "name" -->
+        <input type="text" placeholder="Enter your city" name="city" id="city">
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Weather Results -->
+    <h2>Temperature: {{ temp }}°C</h2>
+    <h3>City: {{ city }}</h3>
+    <p>Condition: {{ description }}</p>
+    <p>
+        <img src="http://openweathermap.org/img/w/{{ icon }}.png" width="120px">
+    </p>
+    <p>Date: {{ day }}</p>
 </body>
 </html>
