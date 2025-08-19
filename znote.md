@@ -38,3 +38,6 @@ urlpatterns=[
 1. Making templates and static folders 
 2. Then we'll add API key in views.py 
 3. Creating an venv file command ` python -m venv venv `
+
+# Day 3 
+Desigining HTML Template Properly 
