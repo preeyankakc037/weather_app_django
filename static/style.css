@@ -1,25 +1,26 @@
 
 :root {
-    --white: #ffffff;
-    --off-white: #e5e5e5;
-    --transp-white-1: rgba(255, 255, 255, 0.25);
-    --transp-white-2: rgba(255, 255, 255, 0.18);
-    --blue-1: #62b8f5;
-    --blue-2: #4475ef;
-    --shadow: rgba(3, 46, 87, 0.2);
+    --white: #951111;
+    --off-white: #f05f5f;
+    --transp-white-1: rgba(102, 12, 12, 0.075);
+    --transp-white-2: rgba(195, 56, 56, 0.18);
+    --blue-1: #62f57b;
+    --blue-2: #efd044;
+    --shadow: rgba(65, 87, 3, 0.2);
   }
 /* body{
     background: linear-gradient(270deg, var(--blue-1), var(--blue-2));
 } */
 *{
-  margin:0;
+  margin:auto;
   padding:0;
   box-sizing:border-box;
   font-family: "Poppins", sans-serif;
+  margin-right:0;
 }
 h1{
     text-align: center;
-    color: rgb(5,41,51);
+    color: rgb(51, 42, 5);
     margin-bottom: 15px;
 }
 h2{
@@ -50,13 +51,13 @@ input, .btn ::placeholder{
   padding: .5rem;
   border-radius: 10px;
   outline: none;
-  border: 1px solid white;
+  border: 1px solid rgb(145, 19, 19);
 }
 .btn{
   padding: .5rem 1rem;
   /* background-color:#F0EBCC ;
   color:#04009A ; */
-  border:2px solid #04009A ;
+  border:2px solid #009a71 ;
   cursor:pointer;
   transition:.3s;
   color: var(--blue-2);
@@ -157,11 +158,32 @@ input, .btn ::placeholder{
 
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200'); */
 
-body  {
-  background-image: url('https://images.pexels.com/photos/3008509/pexels-photo-3008509.jpeg?auto=compress&cs=tinysrgb&w=1600');
-  background-size:cover;
-  background-repeat: no-repeat;
-  margin: 0;
-  width: 1920px;
-       
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;               /* flex centering */
+    justify-content: center;     /* horizontal centering */
+    align-items: center;         /* vertical centering */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+.container {
+    width: 50%;
+    max-width: 1200px;
+    background: var(--transp-white-2);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border: 2px solid var(--transp-white-2);
+    border-radius: 10px;
+    color: rgb(5,41,51);
+    box-sizing: border-box;
+    text-align: center;
+    /* remove margin-top since body is handling centering */
 }
