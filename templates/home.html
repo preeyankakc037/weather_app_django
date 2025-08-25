@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather App</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
@@ -13,19 +13,34 @@
     />
 </head>
 
-<body {% if exception_occurred %}
-    style="background-image: url('https://images.pexels.com/photos/3008509/pexels-photo-3008509.jpeg?auto=compress&cs=tinysrgb&w=1600');" 
-  {% else %}
-  style="background-image: url('{{ image_url }}');"
-  {% endif %}>
+<body 
+  {% if exception_occurred %}
+    style="background-image: url('https://images.pexels.com/photos/3008509/pexels-photo-3008509.jpeg?auto=compress&cs=tinysrgb&w=1600');"
+  {% elif image_url %}
+    style="background-image: url('{{ image_url }}');"
+  {% endif %}
+>
   <div class="container">
     <h1 class="heading">Weather App</h1>
-    
+
+    <!-- 🔹 Search Form -->
     <form method="POST">
       {% csrf_token %}
-      <input type="text" name="city" placeholder="Enter City">
+      <input type="text" name="city" placeholder="Enter City" required>
       <button type="submit" class="btn">Search</button>
     </form>
+
+    <!-- 🔹 Django Messages -->
+    {% if messages %}
+      <div class="messages">
+        {% for message in messages %}
+          <p class="error">{{ message }}</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <!-- 🔹 Weather Info -->
+    {% if temp and city and description %}
     <div class="weather">
       <div class="left">
         <h2 class="temp">{{ temp }}&#176; C</h2>
@@ -33,24 +48,26 @@
       </div>
       <div class="right">
         <div class="icon">
-          <p><img src="http://openweathermap.org/img/w/{{ icon }}.png" width="120px"></p>
+          <img src="http://openweathermap.org/img/w/{{ icon }}.png" 
+               width="120px" 
+               alt="Weather Icon">
         </div>
         <div class="condition">
-          <p>{{ description }}</p>
+          <p>{{ description|title }}</p>
           <p>{{ day }}</p>
         </div>
       </div>
     </div>
+    {% endif %}
   </div>
 
-
-{% if exception_occurred %}
+  <!-- 🔹 Popup Alert for Invalid City -->
+  {% if exception_occurred %}
     <script>
-        window.onload = function() {
-            alert("City information is not available to Weather API");
-        }
+      window.onload = function() {
+        alert("City information is not available in Weather API");
+      }
     </script>
-{% endif %}
-
+  {% endif %}
 </body>
 </html>
