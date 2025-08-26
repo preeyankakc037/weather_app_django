@@ -3,12 +3,14 @@ from django.contrib import messages
 import requests
 import datetime
 
+OPENWEATHER_API_KEY='8725e0e43104c5b14b0807b163e3f7ce'
+
 def home(request):
-    # Get the city name from the form POST request; if not provided, use 'paris' by default
-    city = request.POST.get('city', 'paris')
+    # Get the city name from the form POST request; if not provided, use 'pokhara' by default
+    city = request.POST.get('city', 'pokhara')
 
     # OpenWeatherMap API URL (fetches weather data)
-    url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid=8725e0e43104c5b14b0807b163e3f7ce'
+    url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={OPENWEATHER_API_KEY}'
     PARAMS = {'units': 'metric'}  # Fetch temperature in Celsius
 
     # Google Custom Search API for fetching city images
@@ -67,7 +69,7 @@ def home(request):
         messages.error(request, f"Sorry, weather data for '{city}' is not available.")
         day = datetime.date.today()
 
-        # Fallback weather data (for Paris)
+        # Fallback weather data (for pokhara)
         return render(
             request,
             'home.html',  # ✅ FIXED: Use home.html instead of weatherapp/home.html
@@ -76,7 +78,7 @@ def home(request):
                 'icon': '01d',
                 'temp': 25,
                 'day': day,
-                'city': 'paris',
+                'city': 'pokhara',
                 'exception_occurred': exception_occurred,
                 'image_url': image_url
             }
