@@ -23,14 +23,14 @@
   <div class="container">
     <h1 class="heading">Weather App</h1>
 
-    <!-- 🔹 Search Form -->
+    <!-- Search Form -->
     <form method="POST">
       {% csrf_token %}
       <input type="text" name="city" placeholder="Enter City" required>
       <button type="submit" class="btn">Search</button>
     </form>
 
-    <!-- 🔹 Django Messages -->
+    <!--  Django Messages -->
     {% if messages %}
       <div class="messages">
         {% for message in messages %}
@@ -39,7 +39,7 @@
       </div>
     {% endif %}
 
-    <!-- 🔹 Weather Info -->
+    <!-- Weather Info -->
     {% if temp and city and description %}
     <div class="weather">
       <div class="left">
@@ -61,7 +61,7 @@
     {% endif %}
   </div>
 
-  <!-- 🔹 Popup Alert for Invalid City -->
+  <!-- Popup Alert for Invalid City -->
   {% if exception_occurred %}
     <script>
       window.onload = function() {

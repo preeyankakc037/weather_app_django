@@ -51,7 +51,7 @@ def home(request):
         # Send weather data to template
         return render(
             request,
-            'home.html',  # ✅ Always use home.html
+            'home.html',  #  Always use home.html
             {
                 'description': description,
                 'icon': icon,
@@ -72,7 +72,7 @@ def home(request):
         # Fallback weather data (for pokhara)
         return render(
             request,
-            'home.html',  # ✅ FIXED: Use home.html instead of weatherapp/home.html
+            'home.html',  # FIXED: Use home.html instead of weatherapp/home.html
             {
                 'description': 'clear sky',
                 'icon': '01d',
