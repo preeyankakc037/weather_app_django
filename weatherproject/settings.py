@@ -16,7 +16,11 @@ SECRET_KEY = 'django-insecure-d9apxu8&)u(y^whk!2pj8b#3rlffbc@y-m9k5_y(o$rw44=2p4
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost',  # For local testing
+    '127.0.0.1',  # For local testing
+    'weatherapp-k027.onrender.com',  # Your Render domain
+    '*.onrender.com',  # Wildcard for flexibility
+    ]
 
 
 # Application definition
