@@ -1,19 +1,22 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+
+    <!-- Link to your static CSS -->
     <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
       rel="stylesheet"
     />
 </head>
 
-<body 
+<body
   {% if exception_occurred %}
     style="background-image: url('https://images.pexels.com/photos/3008509/pexels-photo-3008509.jpeg?auto=compress&cs=tinysrgb&w=1600');"
   {% elif image_url %}
@@ -30,7 +33,7 @@
       <button type="submit" class="btn">Search</button>
     </form>
 
-    <!--  Django Messages -->
+    <!-- Django Messages -->
     {% if messages %}
       <div class="messages">
         {% for message in messages %}
