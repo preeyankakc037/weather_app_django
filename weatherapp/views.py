@@ -3,7 +3,7 @@ from django.contrib import messages
 import requests
 import datetime
 
-OPENWEATHER_API_KEY='8725e0e43104c5b14b0807b163e3f7ce'
+OPENWEATHER_API_KEY='your openweather api key '
 
 def home(request):
     # Get the city name from the form POST request; if not provided, use 'pokhara' by default
@@ -14,8 +14,8 @@ def home(request):
     PARAMS = {'units': 'metric'}  # Fetch temperature in Celsius
 
     # Google Custom Search API for fetching city images
-    API_KEY = 'AIzaSyDmMzc9Z3x0XGPp0WqNDYLzhyJAVC_ytjM'
-    SEARCH_ENGINE_ID = 'e5813a7765ecd46ac'
+    API_KEY = 'your api key '
+    SEARCH_ENGINE_ID = 'your search engine id'
     query = city + " 1920x1080"
     page = 1
     start = (page - 1) * 10 + 1
